@@ -1,113 +1,61 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button"
+import { Raleway } from "@/lib/fonts";
+import { Card1 } from "@/app/_root-components/Cards"
+import { SignInButton, SignOutButton } from '@clerk/nextjs'
 
 export default function Home() {
+  // rgba(0, 122, 192, 0.10);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="relative min-h-screen overflow-hidden w-full">
+      <Card1 className="bottom-36 left-28 z-10" />
+      <Card1 className="top-36 right-28 z-10" />
+      <Card1 className="top-64 left-96 z-10 filter blur-sm w-56 h-16" width="30" height="30" />
+      <svg className="absolute top-0 left-0 -z-10 scale-110" xmlns="http://www.w3.org/2000/svg" width="575" height="650" viewBox="0 0 575 650" fill="none">
+        <g filter="url(#filter0_f_9_500)">
+          <path d="M105.434 569.153C-29.5884 569.207 5.19978 389.502 5.15577 278.039C5.11176 166.575 -29.817 -9.79317 105.205 -9.84649C240.227 -9.8998 494.07 166.382 494.114 277.846C494.158 389.309 240.456 569.1 105.434 569.153Z" fill="#007AC0" fill-opacity="0.1" />
+        </g>
+        <defs>
+          <filter id="filter0_f_9_500" x="-78.9365" y="-89.8466" width="653.05" height="739" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feGaussianBlur stdDeviation="40" result="effect1_foregroundBlur_9_500" />
+          </filter>
+        </defs>
+      </svg>
+      <svg className="absolute bottom-0 right-0 -z-10 scale-110" xmlns="http://www.w3.org/2000/svg" width="525" height="638" viewBox="0 0 525 638" fill="none">
+        <g filter="url(#filter0_f_9_267)">
+          <path d="M434.435 80.0615C558.566 78.6861 528.424 251.064 529.607 357.771C530.789 464.478 564.708 632.978 440.576 634.353C316.445 635.729 81.2706 469.459 80.0883 362.752C78.9059 256.045 310.304 81.4369 434.435 80.0615Z" fill="#007AC0" fill-opacity="0.1" />
+        </g>
+        <defs>
+          <filter id="filter0_f_9_267" x="0.0837402" y="0.0533447" width="614.626" height="714.308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feGaussianBlur stdDeviation="40" result="effect1_foregroundBlur_9_267" />
+          </filter>
+        </defs>
+      </svg>
+      <header className="z-20 bg-white py-8 border-b border-border w-full">
+        <div className="container flex items-center justify-between">
+          <strong className={`text-3xl text-primary font-bold ${Raleway.className}`}>uCount</strong>
+          <Button className="min-w-28 rounded-lg opacity-80">Iniciar</Button>
         </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </header>
+      <main className="relative container flex items-center justify-center py-56">
+        <div className="flex flex-col gap-5 items-center justify-center w-full max-w-5xl">
+          <h1 className={`relative py-1 text-5xl font-semibold text-primary ${Raleway.className}`}>
+            Vota y Colabora:
+            <svg className="absolute -top-7 left-0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 400"><path d="M-0.8968609571456909,203.5874481201172C26.60687663157781,200.89686330159506,108.66966074705124,190.73242950439453,164.1255645751953,187.44393920898438C219.5814684033394,184.15544891357422,271.1509730021159,183.25859832763672,331.83856201171875,183.85650634765625C392.5261510213216,184.45441436767578,468.1614074707031,188.78923543294272,528.2510986328125,191.03138732910156C588.3407897949219,193.2735392252604,647.3841756184896,198.2062784830729,692.376708984375,197.30941772460938C737.3692423502604,196.41255696614584,780.5680338541666,187.59342193603516,798.206298828125,185.6502227783203" fill="none" strokeWidth="9" stroke="hsl(265, 55%, 20%)" strokeLinecap="round"></path><defs><linearGradient id="SvgjsLinearGradient1005"><stop stopColor="hsl(37, 99%, 67%)" offset="0"></stop><stop stopColor="hsl(316, 73%, 52%)" offset="1"></stop></linearGradient></defs></svg>
+          </h1>
+          <strong className={`text-5xl font-semibold ${Raleway.className}`}>Transforma tus Proyectos</strong>
+          <p className="text-lg text-[#625F5F] text-center px-8 py-3">uCount te abre las puertas a la colaboración precisa y oportuna, en tus grupos de trabajo.<br /> Descubre como pueden votar propuestas y organizar tareas grupales.</p>
+          <Button asChild size="lg" className="smooth-shadow font-semibold text-lg">
+            <SignInButton mode="modal">
+              Comenzar
+            </SignInButton>
+          </Button>
+          <SignOutButton />
+        </div>
+      </main>
+    </div>
   );
 }
