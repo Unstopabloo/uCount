@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="es">
-        <body className={Noto.className}>
+        <body className={`${Noto.className} overflow-hidden`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
