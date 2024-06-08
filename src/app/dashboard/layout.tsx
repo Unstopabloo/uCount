@@ -2,12 +2,12 @@ import { Raleway } from "@/lib/fonts";
 import { UserButton, SignedIn } from "@clerk/nextjs";
 import Link from "next/link";
 import ToggleTheme from "@/components/toggle-theme"
-import { SquareGanttChart, User2Icon, ClipboardList, ListCollapse, BookOpenText } from 'lucide-react';
+import { SquareGanttChart, ClipboardList, ListCollapse, BookOpenText } from 'lucide-react';
 
 export default function DashLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative min-h-screen overflow-hidden w-full flex ">
-      <aside className="bg-[#00C2E080]/10 dark:bg-slate-900 p-14 max-w-[200px] bg-white border-r border-primary/40 min-h-screen h-full flex flex-col items-center justify-between">
+    <div className="relative min-h-screen w-full flex bg-background">
+      <aside className="bg-card dark:bg-card p-14 max-w-[200px] border-r border-black/10 min-h-screen h-full flex flex-col items-center justify-between">
         <div className="flex flex-col items-center gap-20">
           <header className="flex flex-col items-center justify-center gap-4">
             <strong className={`text-3xl text-primary font-bold ${Raleway.className}`}>uCount</strong>
