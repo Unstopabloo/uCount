@@ -37,7 +37,7 @@ export default function Home() {
         </defs>
       </svg>
 
-      <header className="z-20 bg-white py-8 border-b border-border w-full">
+      <header className="z-20 bg-background py-8 border-b border-border w-full">
         <div className="container flex items-center justify-between">
           <strong className={`text-3xl text-primary font-bold ${Raleway.className}`}>uCount</strong>
           <div className="flex items-center gap-4">
