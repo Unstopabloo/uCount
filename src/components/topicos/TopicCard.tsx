@@ -3,7 +3,7 @@ import { MessagesSquare } from 'lucide-react';
 
 export async function TopicCard() {
   return (
-    <article className='flex items-start gap-4 w-full px-6 py-4 bg-card shadow-md rounded-lg'>
+    <article className='topic-card flex items-start gap-4 w-full px-6 py-4 bg-card shadow-md rounded-lg'>
       <Avatar
         className="inline-block size-8 rounded-full ring-2 ring-white dark:ring-neutral-900"
       >

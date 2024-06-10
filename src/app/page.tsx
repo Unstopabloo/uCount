@@ -58,13 +58,13 @@ export default function Home() {
         <div className="flex flex-col gap-5 items-center justify-center w-full max-w-5xl">
           <h1 className={`relative py-1 text-5xl font-semibold text-primary ${Raleway.className}`}>
             Vota y Colabora:
-            <svg className="absolute -top-7 left-0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 400"><path d="M-0.8968609571456909,203.5874481201172C26.60687663157781,200.89686330159506,108.66966074705124,190.73242950439453,164.1255645751953,187.44393920898438C219.5814684033394,184.15544891357422,271.1509730021159,183.25859832763672,331.83856201171875,183.85650634765625C392.5261510213216,184.45441436767578,468.1614074707031,188.78923543294272,528.2510986328125,191.03138732910156C588.3407897949219,193.2735392252604,647.3841756184896,198.2062784830729,692.376708984375,197.30941772460938C737.3692423502604,196.41255696614584,780.5680338541666,187.59342193603516,798.206298828125,185.6502227783203" fill="none" strokeWidth="9" stroke="hsl(265, 55%, 20%)" strokeLinecap="round"></path><defs><linearGradient id="SvgjsLinearGradient1005"><stop stopColor="hsl(37, 99%, 67%)" offset="0"></stop><stop stopColor="hsl(316, 73%, 52%)" offset="1"></stop></linearGradient></defs></svg>
+            <svg className="absolute -top-7 left-0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 400"><path d="M-0.8968609571456909,203.5874481201172C26.60687663157781,200.89686330159506,108.66966074705124,190.73242950439453,164.1255645751953,187.44393920898438C219.5814684033394,184.15544891357422,271.1509730021159,183.25859832763672,331.83856201171875,183.85650634765625C392.5261510213216,184.45441436767578,468.1614074707031,188.78923543294272,528.2510986328125,191.03138732910156C588.3407897949219,193.2735392252604,647.3841756184896,198.2062784830729,692.376708984375,197.30941772460938C737.3692423502604,196.41255696614584,780.5680338541666,187.59342193603516,798.206298828125,185.6502227783203" fill="none" strokeWidth="9" stroke="hsl(30 92% 58%)" strokeLinecap="round"></path><defs><linearGradient id="SvgjsLinearGradient1005"><stop stopColor="hsl(37, 99%, 67%)" offset="0"></stop><stop stopColor="hsl(316, 73%, 52%)" offset="1"></stop></linearGradient></defs></svg>
           </h1>
-          <strong className={`text-5xl font-semibold text-text1 ${Raleway.className}`}>Transforma tus Proyectos</strong>
+          <strong className={`text-5xl font-semibold text-text1 dark:text-white ${Raleway.className}`}>Transforma tus Proyectos</strong>
           <p className="text-lg text-text2/80 text-center px-8 py-3">uCount te abre las puertas a la colaboración precisa y oportuna, en tus grupos de trabajo.<br /> Descubre como pueden votar propuestas y organizar tareas grupales.</p>
 
           <SignedOut>
-            <Button asChild size="lg" className="smooth-shadow font-semibold text-lg">
+            <Button asChild size="lg" className="smooth-shadow font-semibold text-lg dark:text-white">
               <SignInButton mode="modal">
                 Comenzar
               </SignInButton>
