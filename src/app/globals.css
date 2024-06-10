@@ -113,3 +113,57 @@
   }
 
 }
+
+.check {
+  animation: check 0.4s ease both;
+}
+
+@keyframes check {
+  0% {
+    opacity: 0;
+    scale: 0.3;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+    transform: rotate(360deg);
+  }
+}
+
+.uncheck {
+  animation: check-out 0.4s ease both;
+}
+
+@keyframes check-out {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.3) rotate(0deg);
+  }
+}
+
+.topic-card {
+  animation: reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 5% cover 18%;
+}
+
+@keyframes reveal {
+  0% {
+    filter: blur(2px) opacity(0.5);
+    scale: 0.95;
+    transform: translateX(100px);
+  }
+
+  100% {
+    filter: none;
+    scale: 1;
+    transform: translateY(0);
+  }
+}
