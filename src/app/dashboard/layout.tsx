@@ -14,19 +14,19 @@ export default function DashLayout({ children }: { children: React.ReactNode }) 
           </header>
           <nav>
             <ul className="flex flex-col gap-5 [&>li]:flex [&>li]:items-center [&>li]:gap-4 [&>li]:p-4">
-              <li>
+              <li className="animate-fade-in-right delay-0 duration-600">
                 <SquareGanttChart size={18} className="dark:text-slate-300" />
                 <Link className="dark:text-slate-300" href="/dashboard/">Inicio</Link>
               </li>
-              <li>
+              <li className="animate-fade-in-right delay-75 duration-600">
                 <BookOpenText size={18} className="dark:text-slate-300" />
                 <Link className="dark:text-slate-300" href="/dashboard/proyectos/">Proyectos</Link>
               </li>
-              <li>
+              <li className="animate-fade-in-right delay-150 duration-600">
                 <ClipboardList size={18} className="dark:text-slate-300" />
                 <Link className="dark:text-slate-300" href="/dashboard/tareas/">Tareas</Link>
               </li>
-              <li>
+              <li className="animate-fade-in-right delay-300 duration-600">
                 <ListCollapse size={18} className="dark:text-slate-300" />
                 <Link className="dark:text-slate-300" href="/dashboard/topicos/">Topicos</Link>
               </li>

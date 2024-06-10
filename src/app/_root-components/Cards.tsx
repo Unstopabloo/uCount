@@ -7,10 +7,10 @@ export function Card1({ className, width = "70", height = "70" }: { className?: 
           <path d="M30.51 18.0267L29.4166 19.9867C28.2166 22.14 27.6166 23.2167 26.6833 23.9267C26.8166 23.8267 26.94 23.72 27.06 23.6033C26.2765 28.2233 26.6511 32.9656 28.1503 37.4053C29.6495 41.845 32.2264 45.8435 35.6503 49.0428C39.0742 52.2421 43.2381 54.5422 47.7692 55.7372C52.3003 56.9322 57.057 56.9847 61.6133 55.89L61.5466 55.2567C61.31 52.78 61.19 51.54 61.5466 50.39C61.9033 49.2433 62.6966 48.3133 64.2866 46.4567L65.7333 44.7667C71.3233 38.2333 74.1166 34.9633 73.14 31.8267C72.1666 28.69 68.0666 27.76 59.8666 25.9067L57.7466 25.4267C55.4166 24.9 54.25 24.6367 53.3133 23.9267C52.38 23.2167 51.78 22.14 50.58 19.9867L49.49 18.0267C45.2666 10.4533 43.1566 6.66666 40 6.66666C36.8433 6.66666 34.7333 10.4533 30.51 18.0267Z" fill="white" />
         </svg>
       </div>
-      <div className="flex flex-col items-start justify-center gap-4 opacity-90 bg-white border-[1px] border-slate-200/80 rounded-lg w-56 p-4 h-full">
-        <div className="bg-slate-600/80 h-2 rounded-full w-full"></div>
-        <div className="bg-slate-600/80 h-2 rounded-full w-10/12"></div>
-        <div className="bg-slate-600/80 h-2 rounded-full w-10/12"></div>
+      <div className="flex flex-col items-start justify-center gap-4 opacity-90 bg-card border-[1px] border-slate-200/80 dark:border-slate-600 rounded-lg w-56 p-4 h-full">
+        <div className="bg-slate-600/80 dark:bg-slate-600 h-2 rounded-full w-full"></div>
+        <div className="bg-slate-600/80 dark:bg-slate-600 h-2 rounded-full w-10/12"></div>
+        <div className="bg-slate-600/80 dark:bg-slate-600 h-2 rounded-full w-10/12"></div>
       </div>
     </div>
   )
