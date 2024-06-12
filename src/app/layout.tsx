@@ -20,6 +20,14 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="es">
+        <head>
+          <link
+            rel="icon"
+            href="/icon.png"
+            type="image/png"
+            sizes="32x32"
+          />
+        </head>
         <body className={`${Noto.className} overflow-hidden`}>
           <ThemeProvider
             attribute="class"
