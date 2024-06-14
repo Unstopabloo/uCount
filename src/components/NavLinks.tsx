@@ -44,7 +44,7 @@ export function NavLinks() {
       {LINKS.map((link) => (
         <li
           key={link.id}
-          className={`animate-fade-in-right delay-${link.delay} duration-600 rounded-xl ${pathname === link.href ? 'bg-stone-100 dark:bg-stone-800' : 'bg-transparent'}`}>
+          className={`animate-fade-in-right delay-${link.delay} hover:bg-stone-100 dark:hover:bg-stone-800 duration-600 rounded-xl ${pathname === link.href ? 'bg-stone-100 dark:bg-stone-800' : 'bg-transparent'}`}>
           {link.icon === 'BookOpenText' && <BookOpenText size={18} className="dark:text-slate-300" />}
           {link.icon === 'ClipboardList' && <ClipboardList size={18} className="dark:text-slate-300" />}
           {link.icon === 'ListCollapse' && <ListCollapse size={18} className="dark:text-slate-300" />}

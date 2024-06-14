@@ -39,7 +39,7 @@ export default function Home() {
 
       <header className="z-20 bg-background py-8 border-b border-border w-full">
         <div className="container flex items-center justify-between">
-          <strong className={`text-3xl text-primary font-bold ${Raleway.className}`}>uCount</strong>
+          <strong className={`text-3xl text-primary font-bold ${Raleway.className}`}>Hive5</strong>
           <div className="flex items-center gap-4">
             <SignedOut>
               <Button variant="outline" className="min-w-28 rounded-lg opacity-80">
