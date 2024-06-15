@@ -1,36 +1,20 @@
 import { Raleway } from "@/lib/fonts";
 import { UserButton, SignedIn } from "@clerk/nextjs";
-import Link from "next/link";
 import ToggleTheme from "@/components/toggle-theme"
-import { SquareGanttChart, ClipboardList, ListCollapse, BookOpenText } from 'lucide-react';
+import Image from "next/image";
+import { NavLinks } from "@/components/NavLinks";
 
 export default function DashLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative min-h-screen w-full flex bg-background">
       <aside className="bg-card dark:bg-card p-14 max-w-[200px] border-r border-black/10 min-h-screen h-full flex flex-col items-center justify-between">
         <div className="flex flex-col items-center gap-20">
-          <header className="flex flex-col items-center justify-center gap-4">
-            <strong className={`text-3xl text-primary font-bold ${Raleway.className}`}>uCount</strong>
+          <header className="flex items-center justify-center gap-4">
+            <Image src="/logo-primary.png" alt="Logo de Hive5" width={35} height={35} />
+            <strong className={`text-3xl text-text1 dark:text-white font-bold ${Raleway.className}`}>Hive5</strong>
           </header>
           <nav>
-            <ul className="flex flex-col gap-5 [&>li]:flex [&>li]:items-center [&>li]:gap-4 [&>li]:p-4">
-              <li className="animate-fade-in-right delay-0 duration-600">
-                <SquareGanttChart size={18} className="dark:text-slate-300" />
-                <Link className="dark:text-slate-300" href="/dashboard/">Inicio</Link>
-              </li>
-              <li className="animate-fade-in-right delay-75 duration-600">
-                <BookOpenText size={18} className="dark:text-slate-300" />
-                <Link className="dark:text-slate-300" href="/dashboard/proyectos/">Proyectos</Link>
-              </li>
-              <li className="animate-fade-in-right delay-150 duration-600">
-                <ClipboardList size={18} className="dark:text-slate-300" />
-                <Link className="dark:text-slate-300" href="/dashboard/tareas/">Tareas</Link>
-              </li>
-              <li className="animate-fade-in-right delay-300 duration-600">
-                <ListCollapse size={18} className="dark:text-slate-300" />
-                <Link className="dark:text-slate-300" href="/dashboard/topicos/">Topicos</Link>
-              </li>
-            </ul>
+            <NavLinks />
           </nav>
         </div>
         <footer className="flex items-center justify-between gap-5">

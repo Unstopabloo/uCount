@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Raleway } from "@/lib/fonts";
 import { Card1 } from "@/app/_root-components/Cards"
 import { SignInButton, SignOutButton, SignUpButton, SignedIn, SignedOut } from '@clerk/nextjs'
+import Link from "next/link";
 
 export default function Home() {
   // rgba(0, 122, 192, 0.10);
@@ -39,7 +40,7 @@ export default function Home() {
 
       <header className="z-20 bg-background py-8 border-b border-border w-full">
         <div className="container flex items-center justify-between">
-          <strong className={`text-3xl text-primary font-bold ${Raleway.className}`}>uCount</strong>
+          <strong className={`text-3xl text-primary font-bold ${Raleway.className}`}>Hive5</strong>
           <div className="flex items-center gap-4">
             <SignedOut>
               <Button variant="outline" className="min-w-28 rounded-lg opacity-80">
@@ -70,6 +71,11 @@ export default function Home() {
               </SignInButton>
             </Button>
           </SignedOut>
+          <SignedIn>
+            <Button asChild size="lg" className="smooth-shadow font-semibold text-lg dark:text-white">
+              <Link href="/dashboard"></Link>
+            </Button>
+          </SignedIn>
         </div>
       </main>
     </div>
