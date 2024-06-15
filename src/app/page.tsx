@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Raleway } from "@/lib/fonts";
 import { Card1 } from "@/app/_root-components/Cards"
 import { SignInButton, SignOutButton, SignUpButton, SignedIn, SignedOut } from '@clerk/nextjs'
+import Link from "next/link";
 
 export default function Home() {
   // rgba(0, 122, 192, 0.10);
@@ -70,6 +71,11 @@ export default function Home() {
               </SignInButton>
             </Button>
           </SignedOut>
+          <SignedIn>
+            <Button asChild size="lg" className="smooth-shadow font-semibold text-lg dark:text-white">
+              <Link href="/dashboard"></Link>
+            </Button>
+          </SignedIn>
         </div>
       </main>
     </div>
