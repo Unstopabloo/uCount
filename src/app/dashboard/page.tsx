@@ -3,6 +3,12 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { TaskCard } from '@/components/tareas/TaskCard';
 import { TopicCard } from '@/components/topicos/TopicCard';
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Hive5 - Dashboard',
+  description: "Toda la informacion que necesitas para trabajar en Hive5 y ponerte al día con tus actividades.",
+}
 
 export default async function Home() {
   return (

@@ -68,6 +68,7 @@ export async function POST(req: Request) {
       username: evt.data.username!,
       full_name: full_name,
       email: evt.data.email_addresses[0].email_address!,
+      profile_pic: evt.data.image_url,
     })
   }
 
@@ -84,6 +85,7 @@ export async function POST(req: Request) {
       username: evt.data.username!,
       full_name: full_name,
       email: evt.data.email_addresses[0].email_address!,
+      profile_pic: evt.data.image_url,
     })
   }
 

@@ -49,8 +49,8 @@ export default async function Topicos() {
               <ListCollapse size={18} className="dark:text-slate-300" />
             </div>
           </header>
-          <div className='flex flex-col gap-4 max-h-[50rem] overflow-y-auto overflow-x-hidden w-full px-4'>
-            <TopicCard animated disabled />
+          <div className='flex flex-col gap-4 max-h-[50rem] overflow-y-auto overflow-x-hidden w-full px-4 pb-20'>
+            <TopicCard animated />
             <TopicCard animated />
             <TopicCard animated />
             <TopicCard animated />

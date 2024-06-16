@@ -17,9 +17,14 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 
 const formSchema = z.object({
-  comment: z.string().min(20).max(255),
+  comment: z.string({
+    message: "El comentario debe ser un texto",
+  }).min(6, {
+    message: "El comentario debe tener al menos 6 caracteres",
+  }).max(255, {
+    message: "El comentario no puede tener más de 255 caracteres",
+  }),
 })
-
 
 export function NewComment() {
 
@@ -40,24 +45,26 @@ export function NewComment() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="bg-card shadow-md rounded-lg p-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="bg-card mt-20 shadow-md rounded-lg p-4">
         <FormField
           control={form.control}
           name="comment"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Añade un comentario a este tópico</FormLabel>
               <FormControl>
-                <Textarea placeholder="shadcn" className="resize-none" {...field} />
+                <Textarea placeholder="Escribe aquí tu comentario" className="h-36 resize-none" {...field} />
               </FormControl>
               <FormDescription>
-                This is your public display name.
+                Maxímo 255 caracteres.
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <div className="flex justify-end w-full">
+          <Button className="self-end text-text1 dark:text-slate-100" type="submit">Añadir</Button>
+        </div>
       </form>
     </Form>
   )

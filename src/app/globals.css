@@ -167,3 +167,23 @@
     transform: translateY(0);
   }
 }
+
+.comment-card {
+  animation: reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 2% cover 12%;
+}
+
+@keyframes reveal {
+  0% {
+    filter: blur(1px) opacity(0.5);
+    scale: 0.95;
+    transform: translateX(70px);
+  }
+
+  100% {
+    filter: none;
+    scale: 1;
+    transform: translateY(0);
+  }
+}
