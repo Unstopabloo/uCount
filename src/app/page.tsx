@@ -73,7 +73,7 @@ export default function Home() {
           </SignedOut>
           <SignedIn>
             <Button asChild size="lg" className="smooth-shadow font-semibold text-lg dark:text-white">
-              <Link href="/dashboard"></Link>
+              <Link href="/dashboard">Ingresar</Link>
             </Button>
           </SignedIn>
         </div>

@@ -8,7 +8,7 @@ export default async function Tareas() {
 
   return (
     <div className="py-16 px-28 relative grid grid-cols-3 h-screen overflow-hidden w-full">
-      <Button onMouseDown={() => addGroupToProject({ group_id: 1, project_id: 1 })}>Crear cosas</Button>
+      <Button onMouseDown={() => createGroup()}>Crear cosas</Button>
     </div>
   )
 } 

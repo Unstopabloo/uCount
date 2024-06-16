@@ -1,7 +1,7 @@
 "use server"
 
 import { turso } from "@/lib/turso"
-import { auth, currentUser } from "@clerk/nextjs/server"
+import { auth } from "@clerk/nextjs/server"
 
 auth().protect()
 
@@ -22,7 +22,7 @@ export const createGroup = async () => {
 
   const user_id = rows[0].id
   const end_date = new Date()
-  const end = end_date.setDate(end_date.getMonth() + 2)
+  const end = end_date.setDate(end_date.getMonth() + 2).toLocaleString()
 
   // create group
   const { rows: groupCreated } = await turso.execute({
@@ -37,16 +37,16 @@ export const createGroup = async () => {
   })
 }
 
-export const addUserToGroup = async (users: any[]) => {
+export const addUserToGroup = async () => {
   const { userId } = auth()
 
   if (!userId) {
     throw new Error('No estas autenticado para acceder a esta página')
   }
 
-  // const { rows: users } = await turso.execute("SELECT id FROM users WHERE is_admin = 0");
+  const { rows: users } = await turso.execute("SELECT id FROM users WHERE is_admin = 0");
 
-  // console.log("users", users)
+  console.log("users", users)
 
   // Insert into group
   users.forEach(async (user) => {
@@ -88,7 +88,7 @@ export const createProject = async ({ user_id }: { user_id: number }) => {
   }
 
   const end = new Date()
-  const end_date = end.setDate(end.getMonth() + 2)
+  const end_date = end.setDate(end.getMonth() + 2).toLocaleString()
 
   const { rows: res } = await turso.execute({
     sql: "INSERT INTO projects (title, description, created_by, start_date, end_date) VALUES (:title, :description, :created_by, :start_date, :end_date)",

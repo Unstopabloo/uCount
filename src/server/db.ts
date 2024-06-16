@@ -5,6 +5,7 @@ interface User {
   username: string;
   full_name: string;
   email: string;
+  profile_pic: string;
   is_admin?: boolean;
 }
 
@@ -12,6 +13,7 @@ export const createUser = async ({
   clerk_id,
   username,
   full_name,
+  profile_pic,
   email
 }: User) => {
   if (clerk_id === undefined) throw new Error("Clerk ID is required");
@@ -29,11 +31,12 @@ export const createUser = async ({
   if (typeof email !== "string") throw new Error("Email must be a string");
 
   const user = await turso.execute({
-    sql: "INSERT INTO users (clerk_id, username, full_name, email) VALUES (:clerk_id, :username, :full_name, :email) RETURNING *",
+    sql: "INSERT INTO users (clerk_id, username, full_name, profile_pic, email) VALUES (:clerk_id, :username, :full_name, :profile_pic, :email) RETURNING *",
     args: {
       clerk_id,
       username,
       full_name,
+      profile_pic,
       email,
     }
   });
@@ -43,7 +46,7 @@ export const createUser = async ({
   return user
 }
 
-export const updateUser = async ({ clerk_id, username, full_name, email }: User) => {
+export const updateUser = async ({ clerk_id, username, full_name, email, profile_pic }: User) => {
   if (clerk_id === undefined) throw new Error("Clerk ID is required");
   if (username === undefined) throw new Error("Username is required");
   if (full_name === undefined) throw new Error("First name is required");
@@ -59,11 +62,12 @@ export const updateUser = async ({ clerk_id, username, full_name, email }: User)
   if (typeof email !== "string") throw new Error("Email must be a string");
 
   const user = await turso.execute({
-    sql: "UPDATE users SET username = :username, full_name = :full_name, email = :email WHERE clerk_id = :clerk_id RETURNING *",
+    sql: "UPDATE users SET username = :username, full_name = :full_name, profile_pic = :profile_pic, email = :email WHERE clerk_id = :clerk_id RETURNING *",
     args: {
       clerk_id,
       username,
       full_name,
+      profile_pic,
       email,
     }
   });
