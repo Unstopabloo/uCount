@@ -1,33 +1,101 @@
+import { DataActualProject } from "@/components/proyectos/DataActualProject";
 import { MemberCards } from "@/components/proyectos/MemberCards";
-import { getActualProjectData } from "@/server/actions/get";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { getActualGroup } from "@/server/actions/get";
+import Link from "next/link";
+import { Suspense } from "react";
 
 export default async function Proyectos() {
-  const proyecto = await getActualProjectData({ group_id: 1 })
-  console.log(proyecto)
+  const group_id = await getActualGroup()
 
   return (
-    <main className="py-16 px-28 relative flex flex-col h-screen overflow-hidden w-full">
-      <header className="w-full flex items-center justify-between">
-        <h1 className="text-base font-semibold">Rediseño Sitio Colegio Duoc UC</h1>
-        <time className="text-sm">19 de Junio - 10 de Julio</time>
-        <span className="text-sm"><strong>Profesor: </strong>Lorem</span>
-      </header>
-      <div className="w-full flex flex-col gap-3 py-8">
-        <div className="flex items-center gap-2">
-          <div className="size-2 bg-primary animate-pulse p-1 rounded-full"></div>
-          <span aria-label="Marca de proyecto actual" className="text-sm text-primary">Proyecto actual</span>
-        </div>
-        <p className="text-pretty max-w-[800px] text-text2/90 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
-      </div>
+    <main className="py-16 px-28 relative flex flex-col h-screen overflow-y-auto overflow-x-hidden w-full">
+      <Suspense fallback={<div>Cargando...</div>}>
+        <DataActualProject group_id={group_id} />
+      </Suspense>
+      <Suspense fallback={<div>Cargando...</div>}>
+        <MemberCards group_id={group_id} />
+      </Suspense>
 
-      <section aria-label="Miembros del grupo del proyecto actual">
-        <header className="w-full flex items-center gap-10">
-          <h2 className="text-text2 ">Miembros</h2>
-          <span className="text-text2/80 text-sm">Grupo: <i>Diseñando experiencias</i></span>
+      <section>
+        <header className="w-full flex items-center justify-between gap-10">
+          <h2 className="text-text2/90">Tareas</h2>
+          <Button asChild variant="link">
+            <Link href="/dashboard/tareas">Ver todas las Tareas</Link>
+          </Button>
         </header>
-        <div className="grid grid-cols-3 gap-x-20 gap-y-10 w-full py-10">
-          {/* <MemberCards /> */}
+        <div className="grid grid-cols-3 gap-x-20 gap-y-10 w-full py-10 border-b border-gray-200 dark:border-gray-600/70">
+
+
+          <article className="flex flex-col items-start gap-3 bg-card shadow-md p-4 rounded-lg">
+            <header className="w-full flex items-start justify-between border-b border-red-200 pb-4">
+              <h3 className="text-text2/80">Arquitectura de Información</h3>
+              <Avatar className="size-6">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </header>
+            <div>
+              <strong className="text-primary/90 font-medium text-sm">Sin asignar</strong>
+            </div>
+          </article>
+          <article className="flex flex-col items-start gap-3 bg-card shadow-md p-4 rounded-lg">
+            <header className="w-full flex items-start justify-between border-b border-red-200 pb-4">
+              <h3 className="text-text2/80">Arquitectura de Información</h3>
+              <Avatar className="size-6">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </header>
+            <div>
+              <strong className="text-primary/90 font-medium text-sm">Sin asignar</strong>
+            </div>
+          </article>
+          <article className="flex flex-col items-start gap-3 bg-card shadow-md p-4 rounded-lg">
+            <header className="w-full flex items-start justify-between border-b border-red-200 pb-4">
+              <h3 className="text-text2/80">Arquitectura de Información</h3>
+              <Avatar className="size-6">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </header>
+            <div>
+              <strong className="text-primary/90 font-medium text-sm">Sin asignar</strong>
+            </div>
+          </article>
+          <article className="flex flex-col items-start gap-3 bg-card shadow-md p-4 rounded-lg">
+            <header className="w-full flex items-start justify-between border-b border-red-200 pb-4">
+              <h3 className="text-text2/80">Arquitectura de Información</h3>
+              <Avatar className="size-6">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </header>
+            <div>
+              <strong className="text-primary/90 font-medium text-sm">Sin asignar</strong>
+            </div>
+          </article>
+          <article className="flex flex-col items-start gap-3 bg-card shadow-md p-4 rounded-lg">
+            <header className="w-full flex items-start justify-between border-b border-red-200 pb-4">
+              <h3 className="text-text2/80">Arquitectura de Información</h3>
+              <Avatar className="size-6">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </header>
+            <div>
+              <strong className="text-primary/90 font-medium text-sm">Sin asignar</strong>
+            </div>
+          </article>
+
+
         </div>
+
+        <div className="py-20">
+          proyectos
+        </div>
+
       </section>
     </main>
   )
