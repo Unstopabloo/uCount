@@ -1,5 +1,5 @@
-import { DataActualProject } from "@/components/proyectos/DataActualProject";
-import { MemberCards } from "@/components/proyectos/MemberCards";
+import { ActualDataSkeleton, DataActualProject } from "@/components/proyectos/DataActualProject";
+import { MemberCardSkeleton, MemberCards } from "@/components/proyectos/MemberCards";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { getActualGroup } from "@/server/actions/get";
@@ -7,15 +7,15 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 export default async function Proyectos() {
-  const group_id = await getActualGroup()
+  const group_project = await getActualGroup()
 
   return (
     <main className="py-16 px-28 relative flex flex-col h-screen overflow-y-auto overflow-x-hidden w-full">
-      <Suspense fallback={<div>Cargando...</div>}>
-        <DataActualProject group_id={group_id} />
+      <Suspense fallback={<ActualDataSkeleton />}>
+        <DataActualProject group_id={group_project.group_id} />
       </Suspense>
-      <Suspense fallback={<div>Cargando...</div>}>
-        <MemberCards group_id={group_id} />
+      <Suspense fallback={<MemberCardSkeleton />}>
+        <MemberCards group_id={group_project.group_id} />
       </Suspense>
 
       <section>

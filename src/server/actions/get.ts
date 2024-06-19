@@ -36,7 +36,6 @@ export const getCurrentUser = async () => {
   return rows
 }
 
-
 // ---- Grupos ----
 export const getUsersGroup = async ({ group_id }: { group_id: number }) => {
   const { userId } = auth()
@@ -73,7 +72,8 @@ export const getActualGroup = async () => {
 
   const group: { rows: any[] } = await turso.execute({
     sql: `SELECT
-            user_groups.group_id
+            user_groups.group_id,
+            projects.id as project_id
           FROM
             users
             LEFT JOIN user_groups ON user_groups.user_id = users.id
@@ -90,14 +90,11 @@ export const getActualGroup = async () => {
     throw new Error('No se encontraron proyectos activos para este grupo');
   }
 
-  type Group = {
-    group_id: number;
+  const res: GroupProject = {
+    group_id: group.rows[0].group_id,
+    project_id: group.rows[0].project_id
   }
-
-  const group_id: Group = {
-    group_id: group.rows[0].group_id
-  }
-  return group_id.group_id
+  return res
 }
 
 export const getActualProjectData = async ({ group_id }: { group_id: number }): Promise<Proyecto> => {
@@ -136,8 +133,6 @@ export const getActualProjectData = async ({ group_id }: { group_id: number }): 
       throw new Error('No se encontraron proyectos activos para este grupo');
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-
     // Convertimos los resultados a los tipos esperados, asegurándonos de que no hay valores nulos
     const proyecto: Proyecto = {
       project_id: projectResult.rows[0].project_id,
@@ -164,8 +159,6 @@ export const getMembersProject = async ({ group_id }: { group_id: number }): Pro
   if (!userId) {
     throw new Error('No estas autenticado para acceder a esta página');
   }
-
-  await new Promise((resolve) => setTimeout(resolve, 5000));
 
   try {
     const memberResult: { rows: any[] } = await turso.execute({
@@ -211,5 +204,35 @@ export const getMembersProject = async ({ group_id }: { group_id: number }): Pro
 }
 
 // ---- Tareas ----
+export const getLastTasks = async ({ project_id }: { project_id: number }) => {
+  const { userId } = auth();
+
+  if (!userId) {
+    throw new Error('No estas autenticado para acceder a esta página');
+  }
+
+  const res: { rows: any[] } = await turso.execute({
+    sql: "SELECT * FROM tasks WHERE project_id = :project_id LIMIT 3",
+    args: {
+      project_id
+    }
+  })
+
+  if (res.rows.length === undefined) {
+    throw new Error('No se encontraron proyectos activos para este grupo');
+  }
+
+  const tasks: Task[] = res.rows.map(task => ({
+    task_id: task.id,
+    title: task.title,
+    description: task.description,
+    created_by: task.created_by,
+    assigned_to: task.assigned_to,
+    start_date: task.start_date,
+    end_date: task.end_date
+  }))
+
+  return tasks
+}
 // ---- Topicos ----
 // ---- Comentarios ----
