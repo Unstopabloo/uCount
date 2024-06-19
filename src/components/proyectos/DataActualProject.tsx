@@ -30,3 +30,22 @@ export async function DataActualProject({ group_id }: { group_id: number }) {
     </>
   )
 }
+
+export function ActualDataSkeleton() {
+  return (
+    <div className="pb-5">
+      <div className="w-full flex items-center justify-between">
+        <div className="h-4 w-72 bg-slate-300 dark:bg-gray-700 rounded-xl animate-pulse"></div>
+        <div className="h-4 w-96 bg-slate-300 dark:bg-gray-700 rounded-xl animate-pulse"></div>
+        <div className="h-4 w-72 bg-slate-300 dark:bg-gray-700 rounded-xl animate-pulse"></div>
+      </div>
+      <div className="py-8">
+        <div className="h-10 w-96 rounded-xl bg-slate-300 dark:bg-gray-700 animate-pulse"></div>
+      </div>
+      <div className="w-full flex items-center gap-10">
+        <div className="h-4 w-52 bg-slate-300 dark:bg-gray-700 rounded-xl animate-pulse"></div>
+        <div className="h-4 w-96 bg-slate-300 dark:bg-gray-700 rounded-xl animate-pulse"></div>
+      </div>
+    </div>
+  )
+}

@@ -84,7 +84,7 @@
 
 .smooth-shadow {
   box-shadow: var(--perfect-shadow);
-  --base: hsla(214, 80%, 27%, 0.247);
+  --base: hsla(26, 56%, 8%, 0.247);
   --shade: hsl(from var(--base) calc(h + 8) 25 calc(l - 5));
   --perfect-shadow:
     0 0 0 1px var(--base),

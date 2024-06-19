@@ -23,3 +23,18 @@ interface ProyectoData {
   proyecto: Proyecto;
   members: Member[]
 }
+
+interface Task {
+  task_id: number;
+  title: string;
+  description: string;
+  created_by: string;
+  assigned_to: string;
+  start_date: string;
+  end_date: string;
+}
+
+interface GroupProject {
+  group_id: number;
+  project_id: number;
+}
