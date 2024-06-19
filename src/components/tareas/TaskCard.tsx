@@ -16,8 +16,8 @@ export async function TaskCards({ project_id }: { project_id: number }) {
     <div className='flex items-center justify-between gap-4 w-full'>
       {
         tasks.map(tarea => (
-          <article className='flex flex-col items-start gap-3 bg-card shadow-md rounded-2xl py-4 px-6 flex-1'>
-            <h3 className='text-sm'>Arquitectura de Información</h3>
+          <article key={tarea.task_id} className='flex flex-col items-start gap-3 bg-card shadow-md rounded-2xl py-4 px-6 flex-1'>
+            <h3 className='text-sm'>{tarea.title}</h3>
             <Button className='min-w-[220px] text-sm w-full flex items-center justify-between rounded-2xl text-text1 dark:text-white'>
               Agregar Topico <Plus size={18} className="dark:text-white" />
             </Button>
