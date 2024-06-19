@@ -30,7 +30,7 @@ const LINKS = [
     id: 4,
     href: '/dashboard/topicos',
     name: 'Topicos',
-    icon: 'ListCollapse',
+    icon: 'SquareGanttChart',
     delay: '300'
   },
 ]
