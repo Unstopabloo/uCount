@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^5.1.4",
+    "@formkit/tempo": "^0.1.1",
     "@hookform/resolvers": "^3.6.0",
     "@libsql/client": "^0.6.2",
     "@midudev/tailwind-animations": "^0.0.7",
