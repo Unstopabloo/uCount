@@ -2,13 +2,32 @@ import { ClipboardList, Plus } from "lucide-react";
 import { Button } from "../ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { getLastTasks } from "@/server/actions/get"
+import Link from "next/link";
 
-export async function TaskCards({ project_id }: { project_id: number }) {
+export async function TaskCards({ project_id, is_leader }: { project_id: number, is_leader: boolean }) {
   const tasks = await getLastTasks({ project_id })
 
-  if (tasks.length === 0) {
+  if (tasks.length === 0 && !is_leader) {
     return (
-      <strong>Aun no hay tareas que mostrar</strong>
+      <div className="flex flex-col items-center justify-center w-full gap-2">
+        <strong className="text-text1 font-semibold text-base">Aun no hay tareas que mostrar</strong>
+        <small className="text-text2/80 text-sm font-normal">Habla con el lider para comenzar</small>
+      </div>
+    )
+  }
+
+  if (is_leader && tasks.length === 0) {
+    return (
+      <div className="flex items-center justify-center w-full">
+        <Button asChild variant="outline" className="flex flex-col items-center justify-center gap-4 min-h-28 min-w-36 text-primary">
+          <Link href="/dashboard/tareas/">
+            <Plus size={45} className="dark:text-white" />
+            <span>
+              Agregar tarea
+            </span>
+          </Link>
+        </Button>
+      </div>
     )
   }
 
@@ -47,7 +66,20 @@ export async function TaskCards({ project_id }: { project_id: number }) {
           </article>
         ))
       }
-
+      {
+        !is_leader && (
+          <div className="flex items-center justify-center w-full">
+            <Button asChild variant="outline" className="flex flex-col items-center justify-center gap-4 min-h-28 min-w-36 text-primary">
+              <Link href="/dashboard/tareas/">
+                <Plus size={45} className="dark:text-white" />
+                <span>
+                  Agregar tarea
+                </span>
+              </Link>
+            </Button>
+          </div>
+        )
+      }
     </div>
   )
 }

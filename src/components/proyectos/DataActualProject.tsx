@@ -39,7 +39,7 @@ export function ActualDataSkeleton() {
         <div className="h-4 w-96 bg-slate-300 dark:bg-gray-700 rounded-xl animate-pulse"></div>
         <div className="h-4 w-72 bg-slate-300 dark:bg-gray-700 rounded-xl animate-pulse"></div>
       </div>
-      <div className="py-8">
+      <div className="py-6">
         <div className="h-10 w-96 rounded-xl bg-slate-300 dark:bg-gray-700 animate-pulse"></div>
       </div>
       <div className="w-full flex items-center gap-10">
