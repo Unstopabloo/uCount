@@ -6,7 +6,7 @@ import { FullTaskCards } from "@/components/tareas/FullTaskCards"
 export default async function Tareas() {
 
   return (
-    <main className="pt-16 px-28 h-screen overflow-auto w-full">
+    <main className="animate-fade-in-up pt-16 px-28 h-screen overflow-auto w-full">
       <header className="w-full flex flex-col gap-4 items-start">
         <div className='flex items-center gap-4'>
           <h2 className="text-text1 dark:text-white">Tareas</h2>
