@@ -1,12 +1,13 @@
 import { NewTask } from "@/components/tareas/newTask"
 import { Button } from "@/components/ui/button"
 import { ListCollapse } from "lucide-react"
+import { FullTaskCards } from "@/components/tareas/FullTaskCards"
 
 export default async function Tareas() {
 
   return (
-    <main className="py-16 px-28 min-h-screen overflow-hidden w-full">
-      <header className="w-full flex flex-col gap-5 items-start">
+    <main className="pt-16 px-28 h-screen overflow-auto w-full">
+      <header className="w-full flex flex-col gap-4 items-start">
         <div className='flex items-center gap-4'>
           <h2 className="text-text1 dark:text-white">Tareas</h2>
           <ListCollapse size={18} className="dark:text-slate-300" />
@@ -17,6 +18,10 @@ export default async function Tareas() {
         </div>
       </header>
       <NewTask />
+      <div className="py-10 flex flex-col gap-6">
+        <FullTaskCards />
+        <FullTaskCards />
+      </div>
     </main>
   )
 } 

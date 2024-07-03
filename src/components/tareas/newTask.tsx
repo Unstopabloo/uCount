@@ -60,6 +60,7 @@ export function NewTask() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       description: "",
+      title: "",
       comienzo: new Date(),
       fin: new Date(),
     },
@@ -78,7 +79,7 @@ export function NewTask() {
         <div className="pb-3">
           <FormField
             control={form.control}
-            name="description"
+            name="title"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="py-5">Nombre de la tarea</FormLabel>
@@ -206,7 +207,7 @@ export function NewTask() {
               <FormItem>
                 <FormLabel className="py-5">Detalle de la tarea</FormLabel>
                 <FormControl>
-                  <Input placeholder="Escribe aquí el detalle de la tarea" className="h-36 resize-none" {...field} />
+                  <Textarea placeholder="Escribe aquí el detalle de la tarea" className="h-36 resize-none" {...field} />
                 </FormControl>
                 <FormDescription className="self-end">
                   Maxímo 255 caracteres.
@@ -216,8 +217,8 @@ export function NewTask() {
             )}
           />
         </div>
-        <div className="flex items-center justify-between w-full mt-6">
-          <Button className="self-end text-text1 dark:text-slate-100" type="submit">Añadir</Button>
+        <div className="flex items-center justify-end pe-10 w-full mt-6">
+          <Button className="self-end text-text1 dark:text-slate-100 px-10" type="submit">Añadir</Button>
         </div>
       </form>
     </Form>
