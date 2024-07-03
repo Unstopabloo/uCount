@@ -36,6 +36,41 @@ export const getCurrentUser = async () => {
   return rows
 }
 
+export const getLeaderGroup = async () => {
+  const { userId } = auth()
+
+  if (!userId) {
+    throw new Error('No estas autenticado para acceder a esta página')
+  }
+
+  const res: { rows: any[] } = await turso.execute({
+    sql: `SELECT
+            CASE
+              WHEN users.id = GROUPS.leader_id THEN true
+              ELSE false
+            END AS is_leader
+          FROM
+            users
+            LEFT JOIN user_groups ON user_groups.user_id = users.id
+            LEFT JOIN group_projects ON group_projects.group_id = user_groups.group_id
+            LEFT JOIN projects ON group_projects.project_id = projects.id
+            LEFT JOIN GROUPS ON GROUPS.id = user_groups.group_id
+          WHERE
+            users.clerk_id = :clerk_id
+            AND projects.is_active = true;`,
+    args: {
+      clerk_id: userId
+    }
+  })
+
+  const leader: Leader = {
+    leader: res.rows[0].is_leader
+  }
+
+  const response = leader.leader === true ? leader.leader = true : leader.leader = false
+  return response
+}
+
 // ---- Grupos ----
 export const getUsersGroup = async ({ group_id }: { group_id: number }) => {
   const { userId } = auth()

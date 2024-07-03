@@ -38,3 +38,7 @@ interface GroupProject {
   group_id: number;
   project_id: number;
 }
+
+interface Leader {
+  leader: boolean
+}

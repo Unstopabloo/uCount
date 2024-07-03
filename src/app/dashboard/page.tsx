@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { TaskCards } from '@/components/tareas/TaskCard';
 import { TopicCard } from '@/components/topicos/TopicCard';
 import { Metadata } from 'next'
-import { getActualGroup } from '@/server/actions/get';
+import { getActualGroup, getLeaderGroup } from '@/server/actions/get';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
+  const leader = await getLeaderGroup()
   const { project_id } = await getActualGroup()
 
   return (
@@ -28,7 +29,7 @@ export default async function Home() {
           </Button>
         </header>
         <Suspense fallback={<span>cargando...</span>}>
-          <TaskCards project_id={project_id} />
+          <TaskCards project_id={project_id} is_leader={leader} />
         </Suspense>
       </section>
       <section className="animate-fade-in-up flex flex-col items-start gap-10 py-12 w-full">
